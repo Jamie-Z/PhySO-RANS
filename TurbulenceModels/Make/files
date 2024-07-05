@@ -1,0 +1,5 @@
+incompressibleTurbulenceModel.C
+
+PhySORStress/PhySORStress.C
+
+LIB = $(FOAM_USER_LIBBIN)/libPhySORASModels
