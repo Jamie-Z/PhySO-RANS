@@ -177,62 +177,6 @@ PhySORStress::PhySORStress
         ),
         this->mesh_,
         dimensionedTensor("Rnew", dimensionSet(0, 2, -2, 0, 0, 0, 0), tensor::zero)
-    ),
-
-    q2_
-    (
-        IOobject
-        (
-            "q2",
-            this->runTime_.timeName(),
-            this->mesh_,
-            IOobject::NO_READ,
-            IOobject::AUTO_WRITE
-        ),
-        this->mesh_,
-        dimensionedScalar("q2", dimensionSet(0, 2, -2, 0, 0, 0, 0), 0)
-    ),
-
-    q3_
-    (
-        IOobject
-        (
-            "q3",
-            this->runTime_.timeName(),
-            this->mesh_,
-            IOobject::NO_READ,
-            IOobject::AUTO_WRITE
-        ),
-        this->mesh_,
-        dimensionedScalar("q3", dimensionSet(0, 0, 0, 0, 0, 0, 0), 0)
-    ),
-
-    q5_
-    (
-        IOobject
-        (
-            "q5",
-            this->runTime_.timeName(),
-            this->mesh_,
-            IOobject::NO_READ,
-            IOobject::AUTO_WRITE
-        ),
-        this->mesh_,
-        dimensionedScalar("q5", dimensionSet(0, 0, 1, 0, 0, 0, 0), 0)
-    ),
-
-    q8_
-    (
-        IOobject
-        (
-            "q8",
-            this->runTime_.timeName(),
-            this->mesh_,
-            IOobject::NO_READ,
-            IOobject::AUTO_WRITE
-        ),
-        this->mesh_,
-        dimensionedScalar("q8", dimensionSet(0, 2, -3, 0, 0, 0, 0), 0)
     )
 
 {
@@ -316,8 +260,8 @@ PhySORStress::divDevRhoReff
 
             this->bBot_[cell].xx() = q2[cell]*sqr(q3[cell])/(sqr(1+2*q3[cell]));
             this->bBot_[cell].xy() = (q5[cell]*q8[cell])/(3*q3[cell]+1);
-            this->bBot_[cell].yy() = -q2[cell]/(2+q3[cell])
-            this->bBot_[cell].zz() = q2[cell]*sqr(q3[cell])*sqr(q3[cell]-2)
+            this->bBot_[cell].yy() = -q2[cell]/(2+q3[cell]);
+            this->bBot_[cell].zz() = q2[cell]*sqr(q3[cell])*sqr(q3[cell]-2);
 
             this->bBot_[cell].yx() = this->bBot_[cell].xy();
         }

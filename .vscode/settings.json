@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "PhySORStress.C": "cpp",
+        "incompressibleTurbulenceModel.C": "cpp"
+    }
+}
